@@ -1,8 +1,8 @@
 {
   "name": "generate-password",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Web site with interface for user to generate password.",
+  "author": "Karbashevskyi Ivan",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
