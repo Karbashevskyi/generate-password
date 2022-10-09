@@ -1,0 +1,11 @@
+version: '3.2'
+services:
+  generate-password:
+    container_name: generate-password
+    image: generate-password:1.0.0
+    build:
+      context: .
+      dockerfile: 'Dockerfile'
+    ports:
+      - '3000:3000'
+

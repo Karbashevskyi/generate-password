@@ -1,8 +1,8 @@
 {
   "name": "generate-password",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Web site with interface for user to generate password.",
+  "author": "Karbashevskyi Ivan",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -24,6 +24,8 @@
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "generate-password-ts": "^1.6.3",
+    "hbs": "^4.2.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0"
