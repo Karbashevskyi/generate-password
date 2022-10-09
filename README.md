@@ -1,17 +1,29 @@
 # Generate-Password
 
 ## Docker
+### Download
+```bash
+$ docker pull karba/generate-password:latest
+```
+
+### Run container
+```bash
+$ docker run -it -p 3000:3000 karba/generate-password
+```
+
+### Run from docker-compose.yml
 ```bash
 $ docker-compose up -d -V --build 
 ```
 
-## Installation
+## App
+### Installation
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+### Running the app
 
 ```bash
 # development
