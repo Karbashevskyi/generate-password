@@ -2,7 +2,7 @@ version: '3.2'
 services:
   generate-password:
     container_name: generate-password
-    image: generate-password:2022-10-22--10-54
+    image: generate-password:2022-10-22--43-24
     networks:
       - generate-password-network
     depends_on:
