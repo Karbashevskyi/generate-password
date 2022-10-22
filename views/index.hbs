@@ -1,156 +1,174 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-    <title>{{ message }}</title>
-  </head>
-  <body>
-    <div class="col-lg-8 mx-auto p-3 py-md-5">
-      <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
-        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+  <title>{{ message }}</title>
+</head>
+<body>
+<div class="col-lg-8 mx-auto p-3 py-md-5">
+  <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+    <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
           <span class="me-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
-            <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z"/>
-            <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-key"
+                 viewBox="0 0 16 16">
+            <path
+              d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
+            <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
           </svg>
           </span>
-          <span class="fs-4">Generate Password</span>
-        </a>
-      </header>
+      <span class="fs-4">Generate Password</span>
+    </a>
+  </header>
 
-      <main>
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <h4 class="text-muted">Your strong password</h4>
-            <h1 id="presentation-generated-password" class="my-4 text-info text-break">
-              {{ password }}
-            </h1>
-            <button id="btn-save-to-data-base" class="btn btn-success">Save to data base</button>
-          </div>
-          <div class="col-12 col-md-6">
+  <main>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <h4 class="text-muted">Your strong password</h4>
+        <h1 id="presentation-generated-password" class="my-4 text-info text-break">
+          {{ password }}
+        </h1>
+        <button id="btn-save-to-data-base" class="btn btn-success">Save to data base</button>
+      </div>
+      <div class="col-12 col-md-6">
 
-            <form action="/" method="get">
-              <div class="row">
-                <div class="col">
-                  <div class="mb-3">
-                    <div class="form-check">
-                      {{#if passwordConfig.numbers }}
-                        <input value="true" checked name="numbers" class="form-check-input" type="checkbox" id="numbers">
-                      {{else}}
-                        <input value="true" name="numbers" class="form-check-input" type="checkbox" id="numbers">
-                      {{/if}}
-                      <label class="form-check-label" for="numbers">
-                        Numbers
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="mb-3">
-                  <div class="form-check">
-                    {{#if passwordConfig.symbols }}
-                      <input value="true" checked name="symbols" class="form-check-input" type="checkbox" id="symbols">
-                    {{else}}
-                      <input value="true" name="symbols" class="form-check-input" type="checkbox" id="symbols">
-                    {{/if}}
-                    <label class="form-check-label" for="symbols">
-                      Symbols
-                    </label>
-                  </div>
-                </div>
-                </div>
-                <div class="col">
-                  <div class="mb-3">
-                  <div class="form-check">
-                    {{#if passwordConfig.uppercase }}
-                      <input value="true" checked name="uppercase" class="form-check-input" type="checkbox" id="uppercase">
-                    {{else}}
-                      <input value="true" name="uppercase" class="form-check-input" type="checkbox" id="uppercase">
-                    {{/if}}
-                    <label class="form-check-label" for="uppercase">
-                      Uppercase
-                    </label>
-                  </div>
-                </div>
-                </div>
-                <div class="col">
-                  <div class="mb-3">
-                  <div class="form-check">
-                    {{#if passwordConfig.lowercase }}
-                      <input value="true" checked name="lowercase" class="form-check-input" type="checkbox" id="lowercase">
-                    {{else}}
-                      <input value="true" name="lowercase" class="form-check-input" type="checkbox" id="lowercase">
-                    {{/if}}
-                    <label class="form-check-label" for="lowercase">
-                      Lowercase
-                    </label>
-                  </div>
-                </div>
-                </div>
-              </div>
+        <form action="/" method="get">
+          <div class="row">
+            <div class="col">
               <div class="mb-3">
-                <label for="length" class="form-label">Length</label>
-                <input required name="length" value="{{ passwordConfig.length }}" type="number" class="form-control" id="length">
+                <div class="form-check">
+                  {{#if passwordConfig.numbers }}
+                    <input value="true" checked name="numbers" class="form-check-input" type="checkbox" id="numbers">
+                  {{else}}
+                    <input value="true" name="numbers" class="form-check-input" type="checkbox" id="numbers">
+                  {{/if}}
+                  <label class="form-check-label" for="numbers">
+                    Numbers
+                  </label>
+                </div>
               </div>
-              <button type="submit" class="btn btn-primary">Generate new password</button>
-            </form>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="mt-4 border-top pt-4">
-              <h4>Saved passwords</h4>
-              <div class="p-2" id="saved-password-area">
+            </div>
+            <div class="col">
+              <div class="mb-3">
+                <div class="form-check">
+                  {{#if passwordConfig.symbols }}
+                    <input value="true" checked name="symbols" class="form-check-input" type="checkbox" id="symbols">
+                  {{else}}
+                    <input value="true" name="symbols" class="form-check-input" type="checkbox" id="symbols">
+                  {{/if}}
+                  <label class="form-check-label" for="symbols">
+                    Symbols
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="mb-3">
+                <div class="form-check">
+                  {{#if passwordConfig.uppercase }}
+                    <input value="true" checked name="uppercase" class="form-check-input" type="checkbox"
+                           id="uppercase">
+                  {{else}}
+                    <input value="true" name="uppercase" class="form-check-input" type="checkbox" id="uppercase">
+                  {{/if}}
+                  <label class="form-check-label" for="uppercase">
+                    Uppercase
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="mb-3">
+                <div class="form-check">
+                  {{#if passwordConfig.lowercase }}
+                    <input value="true" checked name="lowercase" class="form-check-input" type="checkbox"
+                           id="lowercase">
+                  {{else}}
+                    <input value="true" name="lowercase" class="form-check-input" type="checkbox" id="lowercase">
+                  {{/if}}
+                  <label class="form-check-label" for="lowercase">
+                    Lowercase
+                  </label>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </main>
-      <footer class="pt-5 my-5 text-muted border-top">
-        Created by Karbashevskyi Ivan · © 2022
-      </footer>
+          <div class="mb-3">
+            <label for="length" class="form-label">Length</label>
+            <input required name="length" value="{{ passwordConfig.length }}" type="number" class="form-control"
+                   id="length">
+          </div>
+          <button id="btn-generate-new-password" type="submit" class="btn btn-primary">Generate new password</button>
+        </form>
+      </div>
     </div>
-    <script>
-      window.onload = () => {
-        const btnSaveToDataBase = document.getElementById('btn-save-to-data-base');
-        const presentationGeneratedPassword = document.getElementById('presentation-generated-password');
-        const savedPasswordArea = document.getElementById('saved-password-area');
+    <div class="row">
+      <div class="col-12">
+        <div class="mt-4 border-top pt-4">
+          <h4>Saved passwords</h4>
+          <div class="p-2" id="saved-password-area">
+          </div>
+          <button id="btn-delete-saved-passwords" class="btn btn-danger d-none">Delete saved passwords</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="pt-5 my-5 text-muted border-top">
+    Created by Karbashevskyi Ivan · © 2022
+  </footer>
+</div>
+<script>
+  window.onload = () => {
+    const btnSaveToDataBase = document.getElementById("btn-save-to-data-base");
+    const presentationGeneratedPassword = document.getElementById("presentation-generated-password");
+    const btnDeleteSavedPasswords = document.getElementById("btn-delete-saved-passwords");
+    const btnGenerateNewPassword = document.getElementById("btn-generate-new-password");
+    const savedPasswordArea = document.getElementById("saved-password-area");
 
-        const updateSavedPasswordArea = async () => {
-          const body = await fetch('/api/password');
-          body.json().then((result) => {
-            if (Array.isArray(result)) {
-              savedPasswordArea.innerHTML = '';
-              result.forEach(({password}) => {
-                const passwordElement = document.createElement('span');
-                // <span class="badge rounded-pill text-bg-primary">Primary</span>
-                passwordElement.classList.add(...['badge', 'rounded-pill', 'text-bg-secondary', 'm-2']);
-                passwordElement.innerText = password;
-                savedPasswordArea.appendChild(passwordElement);
-              });
-            }
+    const updateSavedPasswordArea = async () => {
+      const body = await fetch("/api/password");
+      body.json().then((result) => {
+        btnDeleteSavedPasswords.classList.remove("d-none");
+        savedPasswordArea.innerHTML = "";
+        if (Array.isArray(result) && result?.length) {
+          result.forEach(({ password }) => {
+            const passwordElement = document.createElement("span");
+            passwordElement.classList.add(...["badge", "rounded-pill", "text-bg-secondary", "m-2"]);
+            passwordElement.innerText = password;
+            savedPasswordArea.appendChild(passwordElement);
           });
-        };
+        } else {
+          btnDeleteSavedPasswords.classList.add("d-none");
+        }
+      });
+    };
 
-        updateSavedPasswordArea();
+    updateSavedPasswordArea();
 
-        btnSaveToDataBase.addEventListener('click', () => {
-          console.log(presentationGeneratedPassword.innerText);
-          fetch(`/api/password/${presentationGeneratedPassword.innerText}`, {
-            method: 'POST'
-          }).then(() => {
-            updateSavedPasswordArea();
-            console.log('Saved!');
-          });
-        });
-      };
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-  </body>
+    btnDeleteSavedPasswords.addEventListener("click", async () => {
+      await fetch(`/api/password`, {
+        method: "DELETE"
+      });
+      updateSavedPasswordArea();
+    });
+
+    btnSaveToDataBase.addEventListener("click", async () => {
+      await fetch(`/api/password/${presentationGeneratedPassword.innerText}`, {
+        method: "POST"
+      });
+      updateSavedPasswordArea();
+      btnGenerateNewPassword.click();
+    });
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
 </html>
