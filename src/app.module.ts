@@ -1,10 +1,31 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { MongooseModule } from '@nestjs/mongoose';
+import {
+  Password,
+  PasswordSchema,
+} from './repositories/entities/password.entity';
+import { ApiController } from './api.controller';
+
+const mongoDb = [
+  MongooseModule.forRoot(
+    'mongodb://user123:pass123@localhost:27017/?authSource=admin',
+    {
+      dbName: 'generatePassword',
+    },
+  ),
+  MongooseModule.forFeature([
+    {
+      name: Password.name,
+      schema: PasswordSchema,
+    },
+  ]),
+];
 
 @Module({
-  imports: [],
-  controllers: [AppController],
+  imports: [...mongoDb],
+  controllers: [AppController, ApiController],
   providers: [AppService],
 })
 export class AppModule {}

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
     <title>{{ message }}</title>
   </head>
@@ -28,9 +28,10 @@
         <div class="row">
           <div class="col-12 col-md-6">
             <h4 class="text-muted">Your strong password</h4>
-            <h1 class="my-4 text-info text-break">
+            <h1 id="presentation-generated-password" class="my-4 text-info text-break">
               {{ password }}
             </h1>
+            <button id="btn-save-to-data-base" class="btn btn-success">Save to data base</button>
           </div>
           <div class="col-12 col-md-6">
 
@@ -101,11 +102,55 @@
             </form>
           </div>
         </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="mt-4 border-top pt-4">
+              <h4>Saved passwords</h4>
+              <div class="p-2" id="saved-password-area">
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
       <footer class="pt-5 my-5 text-muted border-top">
         Created by Karbashevskyi Ivan · © 2022
       </footer>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+      window.onload = () => {
+        const btnSaveToDataBase = document.getElementById('btn-save-to-data-base');
+        const presentationGeneratedPassword = document.getElementById('presentation-generated-password');
+        const savedPasswordArea = document.getElementById('saved-password-area');
+
+        const updateSavedPasswordArea = async () => {
+          const body = await fetch('/api/password');
+          body.json().then((result) => {
+            if (Array.isArray(result)) {
+              savedPasswordArea.innerHTML = '';
+              result.forEach(({password}) => {
+                const passwordElement = document.createElement('span');
+                // <span class="badge rounded-pill text-bg-primary">Primary</span>
+                passwordElement.classList.add(...['badge', 'rounded-pill', 'text-bg-secondary', 'm-2']);
+                passwordElement.innerText = password;
+                savedPasswordArea.appendChild(passwordElement);
+              });
+            }
+          });
+        };
+
+        updateSavedPasswordArea();
+
+        btnSaveToDataBase.addEventListener('click', () => {
+          console.log(presentationGeneratedPassword.innerText);
+          fetch(`/api/password/${presentationGeneratedPassword.innerText}`, {
+            method: 'POST'
+          }).then(() => {
+            updateSavedPasswordArea();
+            console.log('Saved!');
+          });
+        });
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </body>
 </html>
