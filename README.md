@@ -4,9 +4,9 @@
 Aplikacja jest stworzona dla generowania hasła które da się zapisać do bazy danych, odczytać ich z tam tą i usunąć.
 Aplikacja została zbudowana za pomocą NestJS "framework" oparta w języku oprogramowania TypeScript.
 W projekcie zostało zbudowano trzy tak zwane "endpoint" dla tego żeby:
-1. Pobrać wszystkie zapisany hasło do bazy danych.
+1. Pobrać wszystkie zapisany hasło z bazy danych.
 2. Zapisać generowane hasło do bazy danych.
-3. Usunąć wszystkie zapisywane hasła do bazy danych.
+3. Usunąć wszystkie zapisywane hasła z bazy danych.
 
 W jakości bazy danych zostało wybrane MongoDB. Zostały zbudowane odpowiednie modele przed które łatwo się posługuje się w procesie związanym z komunikacją pomiędzy MongoDB a NestJS/backend.
 
