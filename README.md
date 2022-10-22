@@ -8,11 +8,11 @@ W projekcie zostało zbudowano trzy tak zwane "endpoint" dla tego żeby:
 2. Zapisać generowane hasło do bazy danych.
 3. Usunąć wszystkie zapisywane hasła z bazy danych.
 
-W jakości bazy danych zostało wybrane MongoDB. Zostały zbudowane odpowiednie modele przed które łatwo się posługuje się w procesie związanym z komunikacją pomiędzy MongoDB a NestJS/backend.
+W jakości bazy danych zostało wybrane MongoDB. Zostały zbudowane odpowiednie modele przez które łatwo się posługuje się w procesie związanym z komunikacją pomiędzy MongoDB a NestJS/backend.
 
 Dla zachowania wersionowania obrazów zostało użyty Docker który pozwala budować obrazy z kodem dla produkcji oraz zostało udostępnione publiczne obrazy po przed Docker Hub.
 
-Poniżej pliku jest zaprezentowana diagram UML i opis jak uruchomić projekt.
+Poniżej w pliku jest zaprezentowana diagram UML i opis jak uruchomić projekt.
 
 ## Diagram: UML
 ![Diagram: UML](./materials/generated-password.jpeg "Diagram: UML")
