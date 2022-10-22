@@ -12,7 +12,12 @@ W jakości bazy danych zostało wybrane MongoDB. Zostały zbudowane odpowiednie 
 
 Dla zachowania wersionowania obrazów zostało użyty Docker który pozwala budować obrazy z kodem dla produkcji oraz zostało udostępnione publiczne obrazy po przed Docker Hub.
 
+Dodatkowo do projektu zostało dodano OpenAPI, które pozwala budować dokumentacje techniczną, poniżej jest podanych po które można przejść do dokumentacji, tylko na początku musi być uruchomiony projekt! 
+
 Poniżej w pliku jest zaprezentowana diagram UML i opis jak uruchomić projekt.
+
+## API Documentation
+>swagger: [http://localhost:3000/api](http://localhost:3000/api)
 
 ## Diagram: UML
 ![Diagram: UML](./materials/generated-password.jpeg "Diagram: UML")

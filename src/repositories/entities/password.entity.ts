@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { ApiProperty } from '@nestjs/swagger';
 
 export type PasswordDocument = Password & Document;
 
@@ -13,6 +14,10 @@ export class Password extends Document {
   })
   object: string;
 
+  @ApiProperty({
+    type: 'string',
+    required: true,
+  })
   @Prop()
   password: string;
 }
