@@ -11,7 +11,7 @@ import { ApiController } from './api.controller';
 const mongoDb = [
   MongooseModule.forRoot(
     // 'mongodb://user123:pass123@localhost:27017/?authSource=admin', // Local run
-    'mongodb://user123:pass123@generate-password-database-mongodb:27017/?authSource=admin', // Dcoker run
+    'mongodb://user123:pass123@generate-password-database-mongodb:27017/?authSource=admin', // Docker run
     {
       dbName: 'generatePassword',
     },
