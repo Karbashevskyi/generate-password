@@ -1,7 +1,20 @@
 # Generate-Password
 
+## Diagram: UML
+![Diagram: UML](./materials/generated-password.jpeg "Diagram: UML")
+
 ## Docker
-### Download
+
+### Main way
+
+#### Run from docker-compose.yml
+```bash
+$ docker-compose up -d -V --build 
+```
+
+### Alternative way
+
+#### Download
 ```bash
 $ docker pull karba/generate-password:latest
 ```
@@ -9,11 +22,6 @@ $ docker pull karba/generate-password:latest
 ### Run container
 ```bash
 $ docker run -it -p 3000:3000 karba/generate-password
-```
-
-### Run from docker-compose.yml
-```bash
-$ docker-compose up -d -V --build 
 ```
 
 ## App
